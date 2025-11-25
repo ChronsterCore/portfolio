@@ -1,14 +1,10 @@
-/* Styles specific to actiflow_activity.html */
-/* General header, footer, notification, mobile nav styles are in base.css */
-
-/* Ensure main content has padding for fixed header */
-.container.main-content-padding { /* Target the main container specifically */
-    max-width: 1200px; /* From original */
+.container.main-content-padding {
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 2rem; /* Original */
-    padding-right: 2rem; /* Original */
-    padding-bottom: 2rem; /* Ensure space before footer */
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
 }
 
 .page-main-title {
@@ -16,23 +12,23 @@
     font-weight: bold;
     color: #333;
     margin-bottom: 2rem;
-    text-align: left; /* Original alignment */
+    text-align: left;
 }
 
 .activity-layout-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Default two columns */
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
 }
 
 .activity-column {
     display: flex;
     flex-direction: column;
-    gap: 2rem; /* Space between panels in a column */
+    gap: 2rem;
 }
 
 .activity-panel-card {
-    background: rgba(40, 58, 40, 0.85); /* Original background */
+    background: rgba(40, 58, 40, 0.85);
     border-radius: 20px;
     padding: 1.5rem;
     color: white;
@@ -236,4 +232,5 @@
         flex-grow: 1; /* Make buttons take available space */
         text-align: center;
     }
+
 }
