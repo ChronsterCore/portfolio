@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ActiFlow - Your Activities</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="actiflow_activity.css">
+</head>
+<body>
+    <header class="header">
+      <a href="homepage2.html" class="logo">
+        <img src="Assets/Logo.png" alt="ActiFlow Logo" class="logo-icon" />
+        ActiFlow
+      </a>
+
+      <nav class="nav-desktop">
+        <a href="homepage2.html">Dashboard</a>
+        <a href="actiflow_activity.html" class="active">Activity</a>
+        <a href="recommendation_page.html">Recommendation</a>
+        <a href="statistic.html">Statistic</a>
+      </nav>
+
+      <div class="header-right-actions">
+        <a href="subscription.html" class="subscribe-btn desktop-subscribe-btn">Subscribe</a>
+        <a href="profile.html" class="profile-btn icon-btn" aria-label="Profile">👤</a>
+      </div>
+      
+      <div class="notification-container" id="headerNotificationContainer">
+          <button
+            class="notification-btn"
+            id="notificationBtn"
+            aria-label="Notifications"
+          >
+            🔔
+            <span class="notification-badge" id="notificationBadge">3</span>
+          </button>
+          <div class="notification-dropdown" id="notificationDropdown">
+            <div class="notification-header">
+              <h3>Notifications</h3>
+              <button class="mark-all-read" id="markAllRead">
+                Mark all as read
+              </button>
+            </div>
+            <div class="notification-list">
+              <div class="notification-item unread" data-id="1">
+                <div class="notification-icon health">💪</div>
+                <div class="notification-content">
+                  <div class="notification-title">Exercise Goal Reminder</div>
+                  <div class="notification-text">
+                    You haven't exercised today. Try a 30-minute walk!
+                  </div>
+                  <div class="notification-time">2 hours ago</div>
+                </div>
+                <div class="notification-dot"></div>
+              </div>
+              <div class="notification-item unread" data-id="2">
+                <div class="notification-icon sleep">😴</div>
+                <div class="notification-content">
+                  <div class="notification-title">Sleep Schedule Alert</div>
+                  <div class="notification-text">
+                    Your sleep quality improved by 15% this week!
+                  </div>
+                  <div class="notification-time">5 hours ago</div>
+                </div>
+                <div class="notification-dot"></div>
+              </div>
+              <div class="notification-item unread" data-id="3">
+                <div class="notification-icon mood">😊</div>
+                <div class="notification-content">
+                  <div class="notification-title">Mood Tracking</div>
+                  <div class="notification-text">
+                    Great job maintaining a positive mood streak!
+                  </div>
+                  <div class="notification-time">1 day ago</div>
+                </div>
+                <div class="notification-dot"></div>
+              </div>
+            </div>
+            <div class="notification-footer">
+              <button class="view-all-btn">View All Notifications</button>
+            </div>
+          </div>
+      </div>
+
+      <button
+        class="hamburger-menu"
+        id="hamburgerMenu"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="overlayMenu"
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </button>
+    </header>
+
+    <div class="overlay-menu" id="overlayMenu" aria-hidden="true">
+      <button
+        class="hamburger-menu overlay-hamburger-close-btn"
+        id="overlayHamburgerCloseBtn"
+        aria-label="Close menu"
+        aria-expanded="true"
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </button>
+      <div class="overlay-content">
+        <div class="overlay-actions-mobile">
+          <a href="profile.html"
+            class="profile-btn icon-btn overlay-profile-btn" 
+            aria-label="Profile"
+          >
+            👤
+          </a>
+          <div class="notification-container-overlay-trigger">
+            <button
+              class="notification-btn overlay-notification-trigger-btn"
+              id="overlayNotificationTriggerBtn"
+              aria-label="Notifications"
+            >
+              🔔
+            </button>
+          </div>
+        </div>
+
+        <nav class="overlay-nav">
+          <a href="homepage2.html">Dashboard</a>
+          <a href="actiflow_activity.html" class="active">Activity</a>
+          <a href="recommendation_page.html">Recommendation</a>
+          <a href="statistic.html">Statistic</a>
+        </nav>
+        <a href="subscription.html" class="subscribe-btn overlay-subscribe-btn">Subscribe</a>
+      </div>
+    </div>
+
+    <main class="container main-content-padding">
+        <h1 class="page-main-title">Your Activities!</h1>
+
+        <div class="activity-layout-grid">
+            <div class="activity-column">
+                <div class="activity-panel-card" id="add-activity-panel">
+                    <form id="addActivityForm">
+                        <div class="form-group">
+                            <input type="text" id="activityName" placeholder="Name your Activity Here!" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="activityType" required>
+                                <option value="" disabled selected>Activity Type</option>
+                                <option value="productive">Exercise/Productive</option>
+                                <option value="relaxation">Relaxation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="time-inputs">
+                            <div class="form-group">
+                                <label for="activityStart">Start:</label>
+                                <input type="time" id="activityStart" value="00:00" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="activityEnd">End:</label>
+                                <input type="time" id="activityEnd" value="00:00" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="add-btn subscribe-btn">ADD</button>
+                    </form>
+                </div>
+
+                <!-- NEW: Reminder Section -->
+                <div class="activity-panel-card" id="reminder-panel-card" style="display: none;"> <!-- Initially hidden -->
+                    <h2 class="card-title">Activity Reminders:</h2>
+                    <div id="reminderSection" class="reminder-list">
+                        <!-- Reminder items will be loaded here by JS -->
+                    </div>
+                </div>
+                <!-- END NEW: Reminder Section -->
+
+                <div class="activity-panel-card" id="upcoming-activities-panel">
+                    <h2 class="card-title">Upcoming Activities:</h2>
+                    <ul id="upcomingActivitiesList" class="activity-list">
+                        <!-- Upcoming activities will be loaded here by JS -->
+                    </ul>
+                </div>
+            </div>
+
+            <div class="activity-column">
+                <div class="activity-panel-card" id="completed-activities-panel">
+                    <h2 class="card-title">Completed Activities:</h2>
+                    <ul id="completedActivitiesList" class="activity-list">
+                        <!-- Completed activities will be loaded here by JS -->
+                    </ul>
+                </div>
+
+                <!-- NEW: Rejected Activities Section -->
+                <div class="activity-panel-card" id="rejected-activities-panel">
+                    <h2 class="card-title">Rejected Activities:</h2>
+                    <ul id="rejectedActivitiesList" class="activity-list">
+                        <!-- Rejected activities will be loaded here by JS -->
+                    </ul>
+                </div>
+                <!-- END NEW: Rejected Activities Section -->
+
+                <div class="activity-panel-card" id="mood-tracker-panel">
+                    <h2 class="card-title">What's your mood?</h2>
+                    <div class="mood-options">
+                        <button class="mood-option" data-mood="good">
+                            <span class="mood-icon">😊</span>
+                            <span class="mood-label">Good</span>
+                        </button>
+                        <button class="mood-option" data-mood="middle">
+                            <span class="mood-icon">😐</span>
+                            <span class="mood-label">Middle</span>
+                        </button>
+                        <button class="mood-option" data-mood="bad">
+                            <span class="mood-icon">😢</span>
+                            <span class="mood-label">Bad</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-brand fade-in stagger-1">
+            <div class="footer-logo">
+              <img src="Assets/Logo.png" alt="ActiFlow Logo" class="footer-logo-icon"/>
+              <div class="footer-logo-text">ActiFlow</div>
+            </div>
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+              <a href="#" class="social-link" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+              <a href="#" class="social-link" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            </div>
+          </div>
+          <div class="footer-section fade-in stagger-2"><h3>Materials</h3><div class="footer-links"><a href="#" class="footer-link">About Us</a><a href="#" class="footer-link">Help & Support</a></div></div>
+          <div class="footer-section fade-in stagger-3"><h3>Legal & Policies</h3><div class="footer-links"><a href="#" class="footer-link">Terms & Condition</a><a href="#" class="footer-link">Privacy & Policy</a></div></div>
+          <div class="footer-section fade-in stagger-4"><h3>Contact</h3><div class="footer-contact-subscribe"><div class="footer-contact"><div class="contact-item"><div class="contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div><a href="mailto:actiflow@gmail.com" class="footer-link">actiflow@gmail.com</a></div><div class="contact-item"><div class="contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div><a href="tel:+6289999999999" class="footer-link">+62 899-9999-9999</a></div></div><div class="footer-subscribe"><div class="newsletter-text">Subscribe for valuable resources.</div><div class="newsletter-form"><input type="email" class="newsletter-input" placeholder="Your email address"><button class="subscribe-btn">Subscribe</button></div></div></div></div>
+        </div>
+        <div class="footer-bottom"><div class="copyright">©2025 ActiFlow. All Right Reserved</div></div>
+      </div>
+    </footer>
+
+    <script src="base.js"></script>
+    <script src="actiflow_activity.js"></script>
+</body>
+</html>

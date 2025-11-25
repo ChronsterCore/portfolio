@@ -1,0 +1,239 @@
+/* Styles specific to actiflow_activity.html */
+/* General header, footer, notification, mobile nav styles are in base.css */
+
+/* Ensure main content has padding for fixed header */
+.container.main-content-padding { /* Target the main container specifically */
+    max-width: 1200px; /* From original */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem; /* Original */
+    padding-right: 2rem; /* Original */
+    padding-bottom: 2rem; /* Ensure space before footer */
+}
+
+.page-main-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: left; /* Original alignment */
+}
+
+.activity-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Default two columns */
+    gap: 2rem;
+}
+
+.activity-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Space between panels in a column */
+}
+
+.activity-panel-card {
+    background: rgba(40, 58, 40, 0.85); /* Original background */
+    border-radius: 20px;
+    padding: 1.5rem;
+    color: white;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    backdrop-filter: blur(8px);
+}
+
+.activity-panel-card .card-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+}
+
+#addActivityForm .form-group {
+    margin-bottom: 1rem;
+}
+
+#addActivityForm label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+#addActivityForm input[type="text"],
+#addActivityForm input[type="time"],
+#addActivityForm select {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #556b55; /* Darker border for contrast on dark panel */
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for input */
+    color: #333; /* Dark text for input */
+    font-size: 1rem;
+}
+#addActivityForm input[type="text"]::placeholder { color: #777; }
+
+#addActivityForm .time-inputs {
+    display: flex;
+    gap: 1rem;
+}
+#addActivityForm .time-inputs .form-group { flex: 1; } /* Distribute space */
+
+/* ADD button specific style if needed, otherwise inherits from .subscribe-btn */
+#addActivityForm .add-btn.subscribe-btn {
+    /* Already styled by .subscribe-btn from base.css */
+    padding: 0.8rem 1rem;
+    text-align: center;
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    min-width: auto; /* Override from base if it has one */
+}
+#addActivityForm .add-btn.subscribe-btn:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+}
+
+.activity-list, .reminder-list { /* Applied to reminder-list as well */
+    list-style: none;
+    padding: 0;
+    max-height: 250px; /* Limit height and enable scroll */
+    overflow-y: auto;
+}
+/* Custom scrollbar for activity lists */
+.activity-list::-webkit-scrollbar, .reminder-list::-webkit-scrollbar { width: 8px; }
+.activity-list::-webkit-scrollbar-track, .reminder-list::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 10px; }
+.activity-list::-webkit-scrollbar-thumb, .reminder-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 10px; }
+.activity-list::-webkit-scrollbar-thumb:hover, .reminder-list::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.5); }
+
+.activity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 0.75rem;
+    border-radius: 10px;
+    font-weight: 500;
+    color: white;
+    transition: transform 0.2s ease;
+}
+.activity-item:hover { transform: scale(1.02); } 
+
+.activity-item .name { flex-grow: 1; }
+.activity-item .time,
+.activity-item .status {
+    font-size: 0.9em;
+    margin-left: 1rem;
+    opacity: 0.9;
+}
+.activity-item .status { color: #c8e6c9; /* Light green for completed status */ }
+
+/* Specific colors for activity types */
+.activity-item.productive { background-color: #1ABC9C; }
+.activity-item.relaxation { background-color: #EC407A; }
+.activity-item.other { background-color: #78909C; }
+.activity-item.rejected { background-color: #E74C3C; } /* Red for rejected */
+.activity-item.rejected .status { color: #fdd8d8; } /* Lighter text for rejected status */
+
+
+.mood-options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.mood-option { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+    border: 2px solid transparent;
+    background: none; 
+    color: white; 
+}
+.mood-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+.mood-option.selected {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #4ade80; 
+}
+
+.mood-icon { font-size: 2.5rem; margin-bottom: 0.3rem; }
+.mood-label { font-size: 0.9rem; font-weight: 500; }
+
+/* NEW: Reminder Section Styles */
+.reminder-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.reminder-item .name {
+    flex-grow: 1;
+    font-weight: 500;
+}
+.reminder-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+.reminder-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+.reminder-btn.done {
+    background-color: #2ECC71; /* Green */
+    color: white;
+}
+.reminder-btn.done:hover {
+    background-color: #27AE60;
+}
+.reminder-btn.reject {
+    background-color: #E74C3C; /* Red */
+    color: white;
+}
+.reminder-btn.reject:hover {
+    background-color: #C0392B;
+}
+/* END NEW: Reminder Section Styles */
+
+
+/* Responsive Adjustments for Activity Page Content */
+@media (max-width: 1024px) { /* Tablet */
+    .activity-layout-grid { grid-template-columns: 1fr; } /* Stack columns */
+    .page-main-title { font-size: 2rem; }
+}
+
+@media (max-width: 768px) { /* Mobile */
+    .page-main-title { font-size: 1.8rem; margin-bottom: 1.5rem; }
+    .activity-panel-card { padding: 1.2rem; }
+    .activity-panel-card .card-title { font-size: 1.1rem; }
+    #addActivityForm .time-inputs { flex-direction: column; gap: 0; } /* Stack time inputs */
+    #addActivityForm .time-inputs .form-group { margin-bottom: 1rem; } 
+
+    .mood-icon { font-size: 2rem; }
+    .mood-label { font-size: 0.8rem; }
+
+    .reminder-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .reminder-actions {
+        width: 100%;
+        justify-content: space-around; /* Spread buttons on mobile */
+    }
+    .reminder-btn {
+        flex-grow: 1; /* Make buttons take available space */
+        text-align: center;
+    }
+}

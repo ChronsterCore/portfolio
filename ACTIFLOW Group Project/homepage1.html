@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ActiFlow - Health Online Platform</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="homepage1.css">
+  </head>
+  <body>
+    <header class="header">
+      <a href="homepage1.html" class="logo"> <!-- Logo links to homepage1 -->
+        <img src="Assets/Logo.png" alt="ActiFlow Logo" class="logo-icon" />
+        ActiFlow
+      </a>
+      <nav class="nav-desktop"> <!-- Desktop nav -->
+        <a href="login_page.html">Dashboard</a>
+        <a href="login_page.html">Activity</a>
+        <a href="login_page.html">Recommendation</a>
+        <a href="login_page.html">Statistic</a>
+      </nav>
+      <div class="header-right-actions"> <!-- Actions for this page -->
+        <a href="login_page.html" class="subscribe-btn">Sign In</a>
+        <a href="register_page.html" class="subscribe-btn">Sign Up</a>
+      </div>
+      <button
+        class="hamburger-menu"
+        id="hamburgerMenu"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="overlayMenu"
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </button>
+    </header>
+
+    <div class="overlay-menu" id="overlayMenu" aria-hidden="true">
+      <button
+        class="hamburger-menu overlay-hamburger-close-btn"
+        id="overlayHamburgerCloseBtn"
+        aria-label="Close menu"
+        aria-expanded="true"
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </button>
+      <div class="overlay-content">
+        <nav class="overlay-nav">
+          <a href="login_page.html">Dashboard</a>
+          <a href="login_page.html">Activity</a>
+          <a href="login_page.html">Recommendation</a>
+          <a href="login_page.html">Statistic</a>
+        </nav>
+        <a href="login_page.html" class="subscribe-btn overlay-subscribe-btn">Sign In</a>
+        <a href="register_page.html" class="subscribe-btn overlay-subscribe-btn">Sign Up</a>
+      </div>
+    </div>
+
+    <main class="main-content-padding">
+      <section class="hero-section">
+        <div class="hero-card animate-float">
+          <div class="hero-content">
+            <div class="platform-label">Health Online Platform</div>
+            <h1 class="hero-title">
+              Take Control of Your Rhythm. Start Today!
+            </h1>
+            <p class="hero-subtitle">
+              Connects directed rhythm with a more meaningful life
+            </p>
+            <a href="register_page.html" class="cta-button">Get Started!</a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            alt="Health and Wellness"
+          />
+          <div class="hero-image-dark-overlay"></div>
+          <div class="hero-image-overlay">
+            <div class="overlay-text">
+              Links starting today with the rhythmic path to success.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features-grid">
+        <div class="feature-card feature-card-1">
+          <img
+            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            alt="Balance and Movement"
+          />
+          <div class="feature-overlay"></div>
+          <div class="feature-content">
+            <h3 class="feature-title">Find Balance in Every Movement.</h3>
+          </div>
+        </div>
+
+        <div class="feature-card feature-card-2">
+          <img
+            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            alt="Happy People"
+          />
+          <div class="feature-overlay"></div>
+          <div class="feature-content">
+            <h3 class="feature-title">
+              Highlights the positive impact of aligned rhythm and mood.
+            </h3>
+          </div>
+        </div>
+
+        <div class="feature-card feature-card-3">
+          <img
+            src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            alt="Success Path"
+          />
+          <div class="feature-overlay"></div>
+          <div class="feature-content">
+            <h3 class="feature-title">Start your journey to wellness today.</h3>
+          </div>
+        </div>
+      </section>
+
+      <section class="subscription-section">
+        <div class="subscription-card">
+          <div class="subscription-label">Subscription</div>
+          <h2 class="subscription-title">
+            Exclusive for You: Connect Deeper with ActiFlow.
+          </h2>
+          <p class="subscription-description">
+            Unlock premium functionalities! Enjoy the unique option to customize
+            your background bar and experience the power of our more intelligent
+            AI, providing you with next-level support and understanding of your
+            rhythm.
+          </p>
+        </div>
+        
+        <div class="subscription-card2">
+            <div class="subscription-label2">Subscription</div>
+        </div>
+        
+        <div class="pricing-cards">
+            <div class="pricing-card free-card">
+              <div class="plan-header">
+                <h3 class="plan-title">Free</h3>
+              </div>
+              <div class="features-list">
+                <div class="feature-item">
+                  <div class="feature-icon">✓</div>
+                  <div class="feature-text">
+                    <strong>Basic Sleep Tracking</strong><br>
+                    <span class="feature-subtitle">(sleep & wake time, sleep duration)</span>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">✓</div>
+                  <div class="feature-text">
+                    <strong>Manual Exercise Logging</strong><br>
+                    <span class="feature-subtitle">(manually add daily activities and mood)</span>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">✓</div>
+                  <div class="feature-text">Daily Summary View</div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">✓</div>
+                  <div class="feature-text">Progress Graphs (last 7 days)</div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">✓</div>
+                  <div class="feature-text">
+                    <strong>Light Activity Reminder</strong><br>
+                    <span class="feature-subtitle">(such as stretching or break)</span>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">✓</div>
+                  <div class="feature-text">Activity History (last 1 week)</div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">✓</div>
+                  <div class="feature-text">Basic Recommendation Feed</div>
+                </div>
+              </div>
+              <a href="register_page.html" class="plan-button free-button">Get Started!</a>
+            </div>
+  
+            <div class="pricing-card pro-card">
+              <div class="plan-header">
+                <h3 class="plan-title">Pro</h3>
+              </div>
+              <div class="features-list">
+                <div class="feature-item">
+                  <div class="feature-icon">✓</div>
+                  <div class="feature-text">
+                    <strong>Custom background bar and add ons in recommendation page</strong>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">✓</div>
+                  <div class="feature-text">
+                    <strong>Personal understanding regarding activities</strong>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">✓</div>
+                  <div class="feature-text">Activity suggestions based on user history</div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">✓</div>
+                  <div class="feature-text">More intuitive AI</div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">✓</div>
+                  <div class="feature-text">Expressive mood with UI</div>
+                </div>
+              </div>
+              <a href="register_page.html" class="plan-button pro-button">Explore Pro</a>
+            </div>
+          </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand fade-in stagger-1">
+                    <div class="footer-logo">
+                        <img src="Assets/Logo.png" alt="ActiFlow Logo" class="footer-logo-icon" />
+                        <div class="footer-logo-text">ActiFlow</div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section fade-in stagger-2">
+                    <h3>Materials</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">About Us</a>
+                        <a href="#" class="footer-link">Help & Support</a>
+                    </div>
+                </div>
+
+                <div class="footer-section fade-in stagger-3">
+                    <h3>Legal & Policies</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Terms & Condition</a>
+                        <a href="#" class="footer-link">Privacy & Policy</a>
+                    </div>
+                </div>
+
+                <div class="footer-section fade-in stagger-4">
+                    <h3>Contact</h3>
+                    <div class="footer-contact-subscribe">
+                        <div class="footer-contact">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                    </svg>
+                                </div>
+                                <a href="mailto:actiflow@gmail.com" class="footer-link">actiflow@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                    </svg>
+                                </div>
+                                <a href="tel:+6289999999999" class="footer-link">+62 899-9999-9999</a>
+                            </div>
+                        </div>
+                        <div class="footer-subscribe">
+                            <div class="newsletter-text">Subscribe for valuable resources.</div>
+                            <div class="newsletter-form">
+                                <input type="email" class="newsletter-input" placeholder="Your email address">
+                                <button class="subscribe-btn">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    ©2025 ActiFlow. All Right Reserved
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="base.js"></script>
+    <script src="homepage1.js"></script>
+  </body>
+</html>

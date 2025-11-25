@@ -1,0 +1,400 @@
+/* subscription.css */
+/* General body and font styles are in base.css */
+/* Header and Footer styles are in base.css */
+
+/* Styles specific to subscription_page.html content */
+
+/* Ensure main content has padding for fixed header - handled by .main-content-padding in HTML */
+body { /* Styles from original subscription.css that apply to body */
+    background: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative; /* For floating elements */
+}
+
+/* Floating Background Elements */
+.floating-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1; /* Behind all content */
+}
+
+.floating-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(79, 172, 254, 0.05); /* Original light blue */
+    backdrop-filter: blur(10px);
+    animation: float 6s ease-in-out infinite;
+}
+
+.circle-1 {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 80%;
+    animation-delay: 0s;
+}
+
+.circle-2 {
+    width: 150px;
+    height: 150px;
+    top: 60%;
+    left: 10%;
+    animation-delay: 2s;
+}
+
+.circle-3 {
+    width: 100px;
+    height: 100px;
+    top: 80%;
+    right: 20%; /* Changed from 'right' to 'left' for better spread if needed, or keep as 'right' */
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+
+/* Main Content Area - Specific to subscription page structure */
+/* .main-content (if used as a class within the .main-content-padding wrapper) */
+/* For example: <main class="main-content-padding"><div class="main-content">...</div></main> */
+/* The original had padding: 4rem 2rem; for a .main-content class */
+/* This will now be controlled by the .pricing-container within .main-content-padding */
+
+.pricing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem; /* Padding for the content inside the main area */
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.pricing-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    text-shadow: none; /* Original had this */
+}
+
+.pricing-subtitle {
+    font-size: 1.2rem;
+    color: #718096;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Pricing Cards */
+.pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Adjusted minmax */
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.pricing-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.3s ease;
+    border: 2px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%); /* Blue gradient */
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.free-card {
+    border-color: #718096; /* Gray border for free card */
+}
+
+.free-card::before {
+    background: #718096; /* Gray top bar for free card */
+}
+
+.pro-card {
+    position: relative;
+    border: 2px solid #00f2fe; /* Cyan border for pro card */
+    box-shadow: 0 20px 40px rgba(0, 242, 254, 0.2);
+    background: linear-gradient(145deg, #ffffff 0%, #f8faff 100%);
+}
+
+.pro-card::before {
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 50%, #4facfe 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
+
+.pro-card::after { /* Shine effect */
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #4facfe, #00f2fe, #4facfe, #00f2fe);
+    background-size: 400% 400%;
+    border-radius: 24px; /* Match card's border-radius */
+    z-index: -1;
+    animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes shine {
+    0%, 100% { 
+        background-position: 0% 50%;
+        opacity: 0.8;
+    }
+    50% { 
+        background-position: 100% 50%;
+        opacity: 1;
+    }
+}
+
+.popular { /* Style for popular card, e.g., slightly larger */
+    /* transform: scale(1.05); // Might be better applied on hover or dynamically */
+}
+
+.popular-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%); /* Red-Orange gradient */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.plan-badge {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #2d3748; /* Dark gray */
+}
+
+.pro-badge { /* For "Pro" text specifically */
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* Standard property */
+}
+
+.plan-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.currency {
+    font-size: 1.2rem;
+    color: #4a5568; /* Medium gray */
+    font-weight: 600;
+}
+
+.amount {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #2d3748; /* Dark gray */
+}
+
+.period {
+    font-size: 1rem;
+    color: #718096; /* Light gray */
+}
+
+/* Features List */
+.features-list {
+    list-style: none;
+    padding-left: 0; /* Remove default padding */
+    margin-bottom: 2rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature-icon {
+    color: #4facfe; /* Blue icon */
+    font-size: 1.1rem;
+    margin-top: 0.2rem; /* Align with text */
+    flex-shrink: 0;
+}
+
+.pro-exclusive .feature-icon { /* For pro-only features */
+    color: #ffa500; /* Orange icon */
+}
+
+.feature-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.feature-text strong {
+    color: #2d3748; /* Dark gray */
+    font-weight: 600;
+}
+
+.feature-text span { /* Sub-text for features */
+    color: #718096; /* Light gray */
+    font-size: 0.9rem;
+}
+
+/* Buttons inside cards */
+.card-footer {
+    text-align: center;
+}
+
+.plan-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.free-btn {
+    background: #f7fafc; /* Very light gray */
+    color: #4a5568; /* Medium gray text */
+    border: 2px solid #e2e8f0; /* Light border */
+}
+
+.free-btn:hover {
+    background: #edf2f7; /* Slightly darker gray */
+    border-color: #cbd5e0; /* Darker border */
+    transform: translateY(-2px);
+}
+
+.pro-btn {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); /* Blue gradient */
+    color: white;
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+}
+
+.pro-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(79, 172, 254, 0.4);
+}
+
+.money-back {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #718096; /* Light gray */
+}
+
+.comparison-note {
+    text-align: center;
+    color: #718096; /* Light gray */
+    font-size: 1rem;
+    margin-top: 2rem; /* Space above this note */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .pricing-container {
+        padding: 2rem 1.5rem;
+    }
+    .pricing-title {
+        font-size: 2.5rem;
+    }
+    .pricing-cards {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+}
+
+
+@media (max-width: 768px) {
+    .pricing-container {
+        padding: 2rem 1rem;
+    }
+    .pricing-title {
+        font-size: 2rem;
+    }
+    .pricing-cards {
+        grid-template-columns: 1fr; /* Stack cards */
+        gap: 1.5rem;
+    }
+    .popular {
+        transform: none; /* Reset popular scaling on mobile if stacked */
+    }
+    .main-content-padding { /* Adjust overall page padding for smaller screens */
+        /* padding-top from base.css is fine */
+        /* padding-left: 1rem; */ /* This is now handled by .pricing-container */
+        /* padding-right: 1rem; */
+    }
+    .amount {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing-card {
+        padding: 1.5rem;
+    }
+    .amount {
+        font-size: 2.2rem;
+    }
+    .feature-item {
+        margin-bottom: 1rem;
+        gap: 0.75rem;
+    }
+    .feature-icon {
+        font-size: 1rem;
+    }
+    .feature-text strong {
+        font-size: 0.95rem;
+    }
+    .feature-text span {
+        font-size: 0.85rem;
+    }
+    .plan-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    .pricing-subtitle {
+        font-size: 1rem;
+    }
+}

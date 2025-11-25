@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ActiFlow - Create Account</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="register_page.css" /> <!-- Changed from register_page-style.css -->
+  </head>
+  <body>
+    <div class="auth-container register-container"> <!-- Added .register-container for potential specific tweaks -->
+      <div class="form-panel-register"> <!-- Renamed from register-card to be more specific -->
+        <div class="logo-section">
+          <a href="homepage1.html" class="logo-auth-page">
+            <img src="Assets/Logo.png" alt="ActiFlow Logo" class="logo-icon-auth" />
+            <!-- ActiFlow -->
+          </a>
+        </div>
+
+        <div class="form-section-content"> <!-- Wrapper for form content -->
+          <h1>Hello User !</h1>
+          <p class="subtitle">Enter below details to create an account</p>
+
+          <form id="registerForm" class="auth-form"> <!-- Common class for auth forms -->
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label> <!-- Changed from Mail for consistency -->
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter password"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm your password"
+                required
+              />
+            </div>
+
+            <button type="submit" class="auth-submit-btn">Sign Up</button>
+
+            <div class="divider">
+              <span>Or</span>
+            </div>
+
+            <div class="social-buttons">
+              <button type="button" class="social-btn facebook-btn">
+                <img src="Assets/image3.png" alt="Facebook Sign Up" /> <!-- Standardized asset name -->
+              </button>
+              <button type="button" class="social-btn google-btn">
+                <img src="Assets/image2.png" alt="Google Sign Up" /> <!-- Standardized asset name -->
+              </button>
+              <button type="button" class="social-btn twitter-btn">
+                <img src="Assets/image4.png" alt="Twitter Sign Up" /> <!-- Standardized asset name -->
+              </button>
+            </div>
+
+            <div class="auth-link">
+              <span>Already have an account?</span>
+              <a href="login_page.html" id="loginLink" class="auth-action-link">Login Here</a>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="info-panel-register"> <!-- Renamed from info-section -->
+        <h2>Begin Your Path to Health and Happiness with Actiflow</h2>
+        <p>
+          Start your health and wellness journey with ActiFlow. Easily and
+          effectively track your daily activities and mood, and achieve a more
+          balanced and energized lifestyle. Sign up now and make every day
+          healthier and happier!
+        </p>
+         <a href="homepage1.html" class="back-to-home-btn">Back to Homepage</a>
+      </div>
+    </div>
+
+    <script src="register_page.js"></script>
+  </body>
+</html>

@@ -1,0 +1,741 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: white;
+  min-height: 100vh;
+  color: #333;
+  opacity: 0; /* For smooth load animation */
+  transition: opacity 0.5s ease;
+  display: flex; /* For sticky footer */
+  flex-direction: column; /* For sticky footer */
+}
+
+/* === HEADER STYLES === */
+.header {
+  background: white;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  gap: 0.5rem;
+  color: #333;
+  flex-shrink: 0;
+  text-decoration: none; /* Ensure logo is not underlined if it's a link */
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  /* border-radius: 8px; /* Optional: if the logo image itself isn't rounded */
+}
+.logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.nav-desktop {
+  display: flex;
+  gap: 2rem;
+  margin: 0 auto;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.nav-desktop a {
+  font-weight: 500;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s;
+  padding: 0.5rem 0;
+}
+
+.nav-desktop a.active,
+.nav-desktop a:hover {
+  font-weight: 700;
+  color: #333;
+}
+
+.header-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* General Subscribe Button Style */
+.subscribe-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  background: linear-gradient(45deg, #4ade80, #06b6d4);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+  text-decoration: none; /* If used as a link */
+  text-align: center;
+}
+
+.subscribe-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* General Icon Button Style */
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s, background-color 0.3s;
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.icon-btn:hover {
+  color: #333;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Profile button specific style (can be overridden if needed) */
+.profile-btn.icon-btn {
+  font-size: 1.5rem;
+  color: #4b0082; /* Specific to homepage2 profile btn */
+}
+.profile-btn.icon-btn.active { /* Style for active profile button */
+    color: #06b6d4; /* Example active color, same as overlay nav highlight */
+    background: rgba(6, 182, 212, 0.1);
+}
+
+
+.profile-btn.icon-btn:hover {
+  color: #6a0dad;
+}
+
+.notification-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Hamburger and Overlay Menu */
+.hamburger-menu {
+  display: none; /* Shown via media query */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1101;
+  gap: 5px;
+}
+
+.hamburger-menu div {
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.header > .hamburger-menu.active div:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.header > .hamburger-menu.active div:nth-child(2) {
+  opacity: 0;
+}
+.header > .hamburger-menu.active div:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.overlay-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  max-width: 80%;
+  height: 100%;
+  background-color: white;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+  z-index: 1100;
+  transition: right 0.3s ease-in-out;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.overlay-menu.active {
+  right: 0;
+}
+
+.overlay-hamburger-close-btn {
+  display: flex; /* Aligns divs properly */
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  z-index: 1102;
+  width: 30px;
+  height: 25px;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.overlay-hamburger-close-btn div { /* Style for the lines in the close button */
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+  /* Reset any inherited transitions or transforms that might interfere */
+  transition: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+
+.overlay-content {
+  margin-top: 3.5rem; /* Space for the close button */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.overlay-actions-mobile {
+  display: none; /* Shown via media query if hamburger is active */
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.overlay-actions-mobile .overlay-profile-btn {
+  font-size: 1.5rem;
+  padding: 0.3rem;
+}
+.overlay-actions-mobile .overlay-profile-btn.active { /* Style for active profile button in overlay */
+    color: #06b6d4;
+    background: rgba(6, 182, 212, 0.1);
+}
+
+
+.notification-container-overlay-trigger {
+  position: relative;
+}
+
+.overlay-actions-mobile .overlay-notification-trigger-btn {
+  font-size: 1.5rem;
+  padding: 0.3rem;
+  color: #666;
+}
+.overlay-actions-mobile .overlay-notification-trigger-btn:hover {
+  color: #333;
+}
+
+.overlay-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.overlay-nav a {
+  text-decoration: none;
+  color: #555;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.overlay-nav a:hover,
+.overlay-nav a.active {
+  color: #06b6d4; /* Highlight color for active/hover in overlay */
+}
+
+.overlay-subscribe-btn {
+  margin-top: 1rem;
+  width: 100%; /* Make subscribe button full width in overlay */
+}
+
+/* === NOTIFICATION STYLES === */
+.notification-btn {
+  position: relative;
+  background: none;
+  border: none;
+  font-size: 1.5rem; /* Match homepage2 bell size */
+  cursor: pointer;
+  color: #666;
+  transition: all 0.3s;
+  padding: 0.5rem; /* Consistent padding for icon buttons */
+  border-radius: 50%; /* Circular background on hover */
+}
+
+.notification-btn:hover {
+  color: #333;
+  background: rgba(0, 0, 0, 0.05);
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+.notification-btn.active { /* Style when dropdown is open */
+  color: #4ade80; /* Or your preferred active color */
+  background: rgba(74, 222, 128, 0.1);
+}
+
+.notification-badge {
+  position: absolute;
+  top: -2px; right: -2px; /* Fine-tune position */
+  background: #ef4444; /* Red for notifications */
+  color: white;
+  border-radius: 50%;
+  width: 18px; height: 18px;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.notification-dropdown {
+  position: fixed; /* Changed from absolute for consistent positioning */
+  top: 60px; /* Adjust based on header height */
+  right: 1rem; /* Default position */
+  width: 380px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 1200; /* Ensure it's above overlay menu if both could be open */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, visibility 0s 0.3s, transform 0.3s ease;
+  max-height: calc(100vh - 80px); /* Prevent it from being too tall */
+  overflow-y: auto; /* scroll for content overflow */
+  display: flex;
+  flex-direction: column;
+}
+
+.notification-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, visibility 0s 0s, transform 0.3s ease;
+}
+
+.notification-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.notification-header h3 { margin: 0; font-size: 1.1rem; color: #333; }
+
+.mark-all-read {
+  background: none; border: none; color: #4ade80;
+  font-size: 0.85rem; cursor: pointer;
+  padding: 0.25rem 0.5rem; border-radius: 6px; transition: all 0.2s;
+}
+.mark-all-read:hover { background: rgba(74, 222, 128, 0.1); }
+
+.notification-list { max-height: 320px; overflow-y: auto; } /* Limit height and enable scroll for list */
+
+.notification-item {
+  display: flex; align-items: flex-start;
+  padding: 1rem 1.5rem; border-bottom: 1px solid #f8f8f8;
+  cursor: pointer; transition: all 0.2s; position: relative;
+}
+.notification-item:hover { background: #f8f9fa; }
+.notification-item.unread { background: rgba(74, 222, 128, 0.02); }
+.notification-item.unread .notification-dot {
+  position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+  width: 8px; height: 8px; background: #4ade80; border-radius: 50%;
+}
+
+.notification-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-right: 0.75rem; flex-shrink: 0; font-size: 1.2rem;
+}
+.notification-icon.health { background: rgba(239, 68, 68, 0.1); }
+.notification-icon.sleep { background: rgba(99, 102, 241, 0.1); }
+.notification-icon.mood { background: rgba(245, 158, 11, 0.1); }
+.notification-icon.work { background: rgba(107, 114, 128, 0.1); }
+.notification-icon.achievement { background: rgba(74, 222, 128, 0.1); }
+
+.notification-content { flex: 1; }
+.notification-title { font-weight: 600; color: #333; margin-bottom: 0.25rem; font-size: 0.9rem; }
+.notification-text { color: #666; font-size: 0.85rem; line-height: 1.4; margin-bottom: 0.25rem; }
+.notification-time { color: #999; font-size: 0.75rem; }
+
+.notification-footer {
+  padding: 1rem 1.5rem; border-top: 1px solid #f0f0f0; text-align: center;
+}
+.view-all-btn {
+  background: linear-gradient(45deg, #4ade80, #06b6d4); color: white; border: none;
+  padding: 0.5rem 1.5rem; border-radius: 8px; font-size: 0.85rem;
+  font-weight: 500; cursor: pointer; transition: transform 0.2s; width: 100%;
+}
+.view-all-btn:hover { transform: translateY(-1px); }
+
+/* Custom scrollbar for notification list */
+.notification-list::-webkit-scrollbar { width: 4px; }
+.notification-list::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 2px; }
+.notification-list::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 2px; }
+.notification-list::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
+
+
+/* === HEADER RESPONSIVE STYLES === */
+@media (max-width: 1024px) { /* Tablet and below */
+  .header { padding: 0.75rem 1.5rem; gap: 1.5rem; }
+  .nav-desktop { display: none; }
+  .header-right-actions .desktop-subscribe-btn { display: none; } /* Hide desktop-only subscribe */
+  .hamburger-menu { display: flex; }
+}
+
+@media (max-width: 768px) { /* Mobile */
+  .header { padding: 0.75rem 1rem; gap: 1rem; }
+  .logo { font-size: 1.3rem; }
+  .logo-icon { width: 28px; height: 28px; }
+  .header-right-actions { display: none; } /* Hide profile icon and desktop subscribe on mobile */
+  .header > .notification-container > #notificationBtn { display: none; } /* Hide main bell icon on mobile header */
+  .hamburger-menu { margin-left: auto; } /* Push hamburger to the right */
+  .overlay-menu .overlay-actions-mobile { display: flex; justify-content: flex-start; } /* Show mobile actions in overlay */
+
+  .notification-dropdown { /* Make dropdown more screen-friendly on mobile */
+      top: 10px; /* Adjust if needed when opened from overlay */
+      right: 10px; left: 10px;
+      width: auto; /* Full width with margins */
+      max-width: 400px; /* Optional max width */
+  }
+}
+
+@media (max-width: 480px) { /* Small Mobile */
+  .header { padding: 0.5rem 1rem; }
+  .logo { font-size: 1.2rem; }
+  .logo-icon { width: 24px; height: 24px; }
+
+  .overlay-menu { width: 100%; max-width: 100%; padding: 1rem; }
+  .overlay-hamburger-close-btn { left: 1rem; }
+  .overlay-content { margin-top: 3rem; }
+  /* Notification dropdown already adjusted in 768px query */
+}
+
+
+/* === FOOTER STYLES === */
+.footer {
+  background: white;
+  border-top: 1px solid #e0e0e0;
+  padding: 3rem 2rem 2rem;
+  margin-top: auto; /* Pushes footer to bottom if content is short */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* Default 4 columns */
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-logo-icon {
+  width: 32px;
+  height: 32px;
+  /* border-radius: 6px; /* Optional: if logo image needs it */
+}
+.footer-logo-icon img { /* If using an img tag inside .footer-logo-icon */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.footer-logo-text {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.1rem; /* For icon font if used, SVG size is controlled by SVG itself */
+}
+.social-link svg {
+  width: 16px; height: 16px; fill: currentColor;
+}
+.social-link:hover {
+  border-color: #00d4aa;
+  color: #00d4aa;
+  transform: translateY(-2px);
+}
+
+.footer-section h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-link {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.footer-link:hover {
+  color: #00d4aa;
+}
+
+.footer-contact-subscribe {
+    display: flex;
+    /* justify-content: space-between; /* Original */
+    flex-direction: column; /* Stack contact and subscribe by default */
+    gap: 2rem; /* Keep gap between contact and subscribe */
+    /* flex-wrap: wrap; /* Original */
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Gap between contact items */
+    /* flex: 1 1 300px; /* Original */
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  /* color: #666; /* Inherited from .footer-link typically */
+  font-size: 0.95rem;
+  margin-bottom: 1rem; /* Original: spacing between items if multiple in .footer-contact */
+}
+.contact-item .footer-link { /* Ensure links within contact items are styled correctly */
+    margin-bottom: 0; /* Reset if .footer-link has bottom margin */
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00d4aa; /* Icon color */
+}
+.contact-icon svg {
+    width: 16px; height: 16px; fill: currentColor;
+}
+
+.footer-subscribe {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    /* flex: 1 1 300px; /* Original */
+    /* min-width: 280px; /* Original */
+}
+
+
+.newsletter-text {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: #00d4aa;
+}
+
+/* Specific subscribe button for footer newsletter */
+.footer .newsletter-form .subscribe-btn {
+    /* Styles for footer's subscribe button already in .subscribe-btn */
+    /* Can add overrides here if needed, e.g., width */
+    min-width: auto; /* Override if .subscribe-btn has a min-width */
+}
+
+
+.footer-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.copyright {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Footer Responsive Design */
+@media (min-width: 769px) { /* Apply side-by-side for contact/subscribe on larger screens */
+    .footer-contact-subscribe {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .footer-contact {
+        flex: 1 1 300px; /* Allow shrinking/growing */
+    }
+    .footer-subscribe {
+        flex: 1 1 300px; /* Allow shrinking/growing */
+        min-width: 280px;
+    }
+}
+
+@media (max-width: 1024px) {
+  .footer { padding: 2.5rem 1.5rem 1.5rem; }
+  .footer-content { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+  .footer-brand { grid-column: span 2; flex-direction: row; justify-content: space-between; align-items: center; }
+  .social-links { gap: 0.75rem; }
+  .social-link { width: 36px; height: 36px; }
+}
+
+@media (max-width: 768px) {
+  .footer { padding: 2rem 1rem 1.5rem; }
+  .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-brand { grid-column: span 1; flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .footer-section h3 { font-size: 1rem; margin-bottom: 1rem; }
+
+  /* .footer-contact-subscribe { Already column from base, this is fine */
+      /* flex-direction: column;  ensured by base */
+  /* } */
+  .footer-contact, .footer-subscribe { /* Ensure they take full width in single column */
+      flex: 1 1 100%;
+      min-width: auto;
+  }
+  .newsletter-form { flex-direction: column; gap: 0.75rem; }
+  .newsletter-input, .footer .newsletter-form .subscribe-btn {
+    width: 100%; padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer { padding: 1.5rem 0.75rem 1rem; }
+  .footer-content { gap: 1.5rem; }
+  .footer-logo-text { font-size: 1.1rem; }
+  .footer-logo-icon { width: 28px; height: 28px; }
+  .social-links { gap: 0.5rem; }
+  .social-link { width: 32px; height: 32px; font-size: 1rem; }
+  .footer-section h3 { font-size: 0.95rem; }
+  .footer-link, .contact-item, .newsletter-text { font-size: 0.9rem; }
+  .copyright { font-size: 0.85rem; }
+}
+
+@media (max-width: 360px) {
+  .footer { padding: 1rem 0.5rem 0.75rem; }
+  .footer-content { gap: 1rem; }
+  .footer-brand { gap: 0.75rem; }
+  .footer-logo-text { font-size: 1rem; }
+  .footer-logo-icon { width: 24px; height: 24px; }
+  .social-link { width: 28px; height: 28px; font-size: 0.9rem; }
+  .footer-section h3 { font-size: 0.9rem; margin-bottom: 0.75rem; }
+  .footer-link, .contact-item, .newsletter-text { font-size: 0.85rem; }
+  .newsletter-input, .footer .newsletter-form .subscribe-btn { padding: 0.75rem; font-size: 0.85rem; }
+  .copyright { font-size: 0.8rem; }
+  .footer-bottom { padding-top: 1.5rem; }
+}
+
+/* Animation classes (used by footer) */
+.fade-in { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.6s ease forwards; }
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+
+/* Utility for main content padding to account for fixed header */
+.main-content-padding {
+    padding-top: 5rem; /* Default, adjust based on actual header height */
+}
+@media (max-width: 768px) {
+    .main-content-padding { padding-top: 4.5rem; }
+}
+@media (max-width: 480px) {
+    .main-content-padding { padding-top: 4rem; }
+}
+@media (max-width: 360px) {
+    .main-content-padding { padding-top: 3.5rem; }
+}
