@@ -1,0 +1,317 @@
+/* Styles specific to profile.html */
+/* General header, footer, notification, mobile nav styles are in base.css */
+
+.profile-main-container.main-content-padding {
+    /* Padding for fixed header handled by main-content-padding from base.css */
+    padding-bottom: 2rem; /* Space before footer */
+}
+
+.profile-grid-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Profile card on left, dashboard on right */
+  gap: 2rem;
+}
+
+.profile-card {
+  background: white; /* Keep profile form card white for contrast */
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  height: fit-content; /* Adjust height to content */
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.profile-avatar-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1rem; /* Center the container */
+}
+
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #e0e0e0; /* Fallback background for avatar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default; /* Default cursor, button will be separate */
+  overflow: hidden; /* Crucial for img tag to be rounded */
+  border: 3px solid #00d4aa; /* Accent border */
+}
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers the circle */
+}
+
+
+.camera-btn, .remove-photo-btn {
+    position: absolute;
+    bottom: 0px; /* Position at bottom of avatar */
+    background-color: #00d4aa; /* ActiFlow green */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 1rem; /* Adjust icon size if needed */
+}
+.camera-btn {
+    right: 0px; /* Position on the right side */
+}
+.remove-photo-btn {
+    left: 0px; /* Position on the left side */
+    background-color: #ef4444; /* Red for remove */
+}
+.camera-btn:hover, .remove-photo-btn:hover {
+    transform: scale(1.1);
+}
+.camera-btn:hover { background-color: #00b4d8; } /* Darker green on hover */
+.remove-photo-btn:hover { background-color: #d32f2f; } /* Darker red on hover */
+
+
+#profileNameDisplay { /* For name below avatar */
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-top: 0.5rem;
+}
+#profileEmailDisplay {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+
+#profileForm .form-group {
+  margin-bottom: 1.25rem; /* Consistent spacing */
+}
+#profileForm .form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500; /* Slightly less bold */
+  color: #4A5568; /* Darker gray */
+  font-size: 0.9rem;
+}
+#profileForm .form-group input,
+#profileForm .form-group select,
+#profileForm .form-group textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem; /* Adjusted padding */
+  border: 1px solid #D1D5DB; /* Slightly darker border */
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #F9FAFB;
+}
+#profileForm .form-group input:focus,
+#profileForm .form-group select:focus,
+#profileForm .form-group textarea:focus {
+  outline: none;
+  border-color: #00d4aa; /* ActiFlow accent */
+  box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.15);
+  background-color: white;
+}
+#profileForm .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+#profileForm .form-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.btn { /* General button styling, can be used by form buttons */
+  padding: 0.75rem 1.5rem; /* Adjusted padding */
+  border: none;
+  border-radius: 8px; /* Consistent border radius */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+}
+.btn-primary { /* Save Changes */
+  background: linear-gradient(45deg, #4ade80, #06b6d4); /* ActiFlow gradient */
+  color: white;
+}
+.btn-secondary { /* Cancel */
+  background: #E5E7EB; /* Light gray */
+  color: #374151; /* Dark gray text */
+}
+.btn-danger { /* Logout */
+    background: #EF4444; /* Red */
+    color: white;
+    width: 100%; /* Make logout full width in its context */
+    margin-top: 1rem; /* Space above logout button */
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.btn-primary:hover { background: linear-gradient(45deg, #36c270, #05a0ba); }
+.btn-secondary:hover { background: #D1D5DB; }
+.btn-danger:hover { background: #DC2626; }
+
+
+/* Dashboard Section on the right */
+.dashboard-section {
+  background: linear-gradient(135deg, #2d5a27 0%, #4a7c59 100%); /* Dark green gradient */
+  border-radius: 20px;
+  padding: 2rem;
+  color: white;
+  height: fit-content; /* Adjust height to content */
+}
+.dashboard-section .section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-align: center;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive */
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.stat-card {
+  background: rgba(255, 255, 255, 0.1); /* Light overlay on dark green */
+  color: white;
+  padding: 1.5rem 1rem;
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s, background-color 0.3s;
+}
+.stat-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+}
+.stat-icon {
+    font-size: 1.8rem; /* Icon size */
+    margin-bottom: 0.5rem;
+    color: #00d4aa; /* Accent color for icons */
+}
+.stat-number {
+  font-size: 1.8rem; /* Adjusted for card size */
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+.stat-card > div:not(.stat-icon):not(.stat-number):not(.progress-bar) { /* Label text */
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.progress-bar {
+  width: 80%; /* Make progress bar not too wide */
+  margin: 0.5rem auto 0; /* Center it */
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.2); /* Lighter background for bar */
+  border-radius: 10px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: #00d4aa; /* ActiFlow accent for fill */
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+}
+
+.activity-log {
+  background: rgba(255, 255, 255, 0.05); /* Very subtle background */
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.log-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: white;
+}
+.activity-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0; /* Vertical padding only */
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1); /* Subtle separator */
+}
+.activity-item:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+.activity-icon {
+  width: 36px; /* Smaller icons */
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-size: 1rem; /* Smaller emoji/icon font */
+  color: white; /* Default icon color if not set by background */
+}
+.activity-item-title {
+    font-weight: 500; /* Medium weight */
+    margin-bottom: 0.15rem;
+    font-size: 0.95rem;
+}
+.activity-item-detail {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.8rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) { /* Tablet */
+  .profile-grid-layout {
+    grid-template-columns: 1fr; /* Stack profile and dashboard */
+  }
+  .profile-card, .dashboard-section {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) { /* Mobile */
+  .profile-main-container.main-content-padding {
+     padding-left: 1rem; padding-right: 1rem;
+  }
+  #profileForm .form-row {
+    grid-template-columns: 1fr; /* Stack form row elements */
+  }
+  .profile-avatar-container { width: 100px; height: 100px; }
+  .camera-btn, .remove-photo-btn { width: 30px; height: 30px; font-size: 0.9rem;}
+
+  .stats-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+  .stat-card { padding: 1rem; }
+  .stat-icon { font-size: 1.5rem; }
+  .stat-number { font-size: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .profile-card, .dashboard-section { padding: 1rem; }
+  #profileNameDisplay { font-size: 1.3rem; }
+  .btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+  .section-title, .log-title { font-size: 1.1rem; }
+  .stats-grid { grid-template-columns: 1fr 1fr; } /* Two stats per row */
+  .stat-card { padding: 0.75rem; }
+  .stat-icon { font-size: 1.3rem; }
+  .stat-number { font-size: 1.3rem; }
+  .activity-item-title { font-size: 0.9rem; }
+  .activity-item-detail { font-size: 0.75rem; }
+}
