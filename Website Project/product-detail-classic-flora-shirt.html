@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Flora Shirt- Christian Wijaya</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/product-detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container header-flex">
+            <a href="home.html" class="logo">
+                <img src="images/logo.png" alt="Christian Wijaya Logo">
+                <span class="brand-name">Christian Wijaya</span>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="event.html">Event</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-title-section">
+             <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="products.html">Products</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Classic Flora Shirt</li>
+                    </ol>
+                </nav>
+             </div>
+        </section>
+
+        <section class="product-detail-section">
+            <div class="container product-detail-layout">
+                <div class="product-image-gallery">
+                    <img src="images/Flora-shirt.jpg" alt="Classic Flora Shirt" id="mainProductImage">
+                </div>
+                <div class="product-info">
+                    <h1>Classic Flora Shirt</h1>
+                    <p class="price">$200.00</p>
+                    <p class="description">
+                        Embrace leisurely sophistication with our Classic Floral Shirt. Crafted from a soft, lightweight fabric, it boasts a unique, tastefully muted floral pattern. Ideal for weekend gatherings or adding a touch of refined character to your smart-casual wardrobe, this shirt ensures both comfort and a distinctively stylish appeal.
+                    </p>
+                    
+                    <div class="quantity-selector">
+                        <label for="quantity">Quantity:</label>
+                        <button type="button" class="quantity-btn minus" aria-label="Decrease quantity">-</button>
+                        <input type="number" id="quantity" name="quantity" value="1" min="1" readonly>
+                        <button type="button" class="quantity-btn plus" aria-label="Increase quantity">+</button>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button type="button" class="btn btn-primary" id="addToCartBtn">Add to Cart</button>
+                        <button type="button" class="btn btn-secondary" id="orderNowBtn">Order Now</button>
+                    </div>
+
+                    <div id="product-notification-area" class="product-notification-area" style="display: none;">
+                        <p id="product-notification-message"></p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <section class="related-products">
+            <div class="container">
+                <h2>You Might Also Like</h2>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <a href="product-detail-slim-fit-shirt.html" class="product-item-link">
+                            <img src="images/slim-fit-shirt.jpg" alt="Slim Fit Shirt">
+                            <h3>Slim Fit Shirt</h3>
+                        </a>
+                        <a href="product-detail-slim-fit-shirt.html" class="btn">View Details</a>
+                    </div>
+                    <div class="product-item">
+                        <a href="product-detail-cashmere-scarf.html" class="product-item-link">
+                            <img src="images/cashmere-scarf.jpg" alt="Cashmere Scarf">
+                            <h3>Cashmere Scarf</h3>
+                        </a>
+                        <a href="product-detail-cashmere-scarf.html" class="btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Christian Wijaya. All rights reserved.</p>
+             <div class="social-links">
+                <a href="#" aria-label="Facebook"><img src="images/icon-facebook.svg" alt="Facebook"></a>
+                <a href="#" aria-label="Instagram"><img src="images/icon-instagram.png" alt="Instagram"></a>
+                <a href="#" aria-label="Twitter"><img src="images/icon-twitter.svg" alt="Twitter"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

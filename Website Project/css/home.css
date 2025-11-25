@@ -1,0 +1,66 @@
+.hero {
+    background: url('../images/home_banner.png') no-repeat center center/cover;
+    color: var(--content-bg-color);
+    text-align: center;
+    padding: 100px 20px;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 1;
+}
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    color: var(--content-bg-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.hero .subtitle {
+    font-size: 1.5rem;
+    font-family: var(--primary-font);
+    font-weight: 300;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Home Page Sections */
+.home-about, .featured-products, .brand-philosophy {
+    text-align: center;
+}
+.home-about .container, .brand-philosophy .container {
+    max-width: 800px;
+}
+.home-about p, .brand-philosophy p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.featured-products .product-item p {
+    padding: 0 20px 15px;
+    font-size: 0.9rem;
+    flex-grow: 1;
+}
+
+
+/* Responsive Home */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.8rem; }
+    .hero .subtitle { font-size: 1.2rem; }
+    .hero { min-height: 50vh; padding: 60px 20px; }
+}
+
+@media (max-width: 480px) {
+    .hero h1 { font-size: 2.2rem; }
+    .hero .subtitle { font-size: 1rem; }
+}
